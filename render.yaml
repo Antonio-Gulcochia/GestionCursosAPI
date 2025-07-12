@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: GestionCursosAPI
+    env: .netcore
+    plan: free
+    buildCommand: "dotnet publish -c Release -o ./publish"
+    startCommand: "dotnet ./publish/GestionCursosAPI.dll"
+    publishDir: publish
+    autoDeploy: true
