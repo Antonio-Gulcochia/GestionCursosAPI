@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Cursos</title>
+</head>
+<body>
+    <h2>Cursos Registrados</h2>
+    <ul id="listaCursos"></ul>
+
+    <script>
+        fetch(https://localhost:52499/api/cursos")
+            .then(response => response.json())
+            .then(data => {
+                const lista = document.getElementById("listaCursos");
+                data.forEach(curso => {
+                    const item = document.createElement("li");
+                    item.textContent = `${curso.nombre} - ${curso.ciclo} - Créditos: ${curso.creditos}`;
+                    lista.appendChild(item);
+                });
+            });
+    </script>
+</body>
+</html>
